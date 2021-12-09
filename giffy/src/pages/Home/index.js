@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
 import getGifs from "../../services/getGifs";
-import ListOfGifs from "../../components/ListOfGifs/ListOfGifs";
+import ListOfGifs from "../../components/ListOfGifs";
+
+
 const POPULAR_GIFS = ["Matrix", "Rick", "morty", "Panda"];
 
 export default function Home() {
@@ -13,7 +15,7 @@ export default function Home() {
 
     useEffect(function () {
         setLoading(true);
-        getGifs({ keyword }).then(gifs => {
+        getGifs({ keyword: 'Rick' }).then(gifs => {
             setGifs(gifs);
             setLoading(false);
         })
@@ -34,6 +36,7 @@ export default function Home() {
             <form onSubmit={handleSubmit}>
                 <input placeholder="Busca aquí tu gif..." onChange={handleChange} type="text" value={keyword} />
             </form>
+            <h3 className="App-title">Última búsqueda</h3>
             <ListOfGifs gifs={gifs} />
             <h3 className="App-title">Los gifs más populares</h3>
             <ul>
