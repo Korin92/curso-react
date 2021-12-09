@@ -2,24 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
 import getGifs from "../../services/getGifs";
 import ListOfGifs from "../../components/ListOfGifs";
+import { useGifs } from "../../hooks/useGifs";
 
 
 const POPULAR_GIFS = ["Matrix", "Rick", "morty", "Panda"];
 
 export default function Home() {
-    const { keyword, setKeywiord } = useState('');
+    const { keyword, setKeyword } = useState('');
     const [path, pushLocation] = useLocation();
 
-    const [loading, setLoading] = useState(false);
-    const [gifs, setGifs] = useState([]);
-
-    useEffect(function () {
-        setLoading(true);
-        getGifs({ keyword: 'Rick' }).then(gifs => {
-            setGifs(gifs);
-            setLoading(false);
-        })
-    }, [keyword]);
+    const {loading, gifs} = useGifs();
 
     const handleSubmit = evt =>{
         evt.preventDefault();
@@ -29,12 +21,13 @@ export default function Home() {
 
     const handleChange = evt =>{
 
-        setKeywiord(evt.target.value);
+        setKeyword(evt.target.value);
     }
     return (
         <>
             <form onSubmit={handleSubmit}>
                 <input placeholder="Busca aquí tu gif..." onChange={handleChange} type="text" value={keyword} />
+                <button>Buscar</button>
             </form>
             <h3 className="App-title">Última búsqueda</h3>
             <ListOfGifs gifs={gifs} />
