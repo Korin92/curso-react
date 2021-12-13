@@ -13,7 +13,7 @@ export default function SearchResults({ params }) {
         {
             loading ? <Spinner /> : <ListOfGifs gifs={gifs} />
         }
-
+{/* Hago cambios */}
     </>
 
 }
