@@ -9,6 +9,7 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "intersection-observer": "^0.12.0",
+    "just-debounce-it": "^3.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -42,7 +43,6 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
-    "babel-loader": "^8.1.0",
-    "webpack": "^5.65.0"
+    "babel-loader": "^8.1.0"
   }
 }

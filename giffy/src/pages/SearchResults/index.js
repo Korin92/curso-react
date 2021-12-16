@@ -1,5 +1,4 @@
-import React, { useRef } from 'react';
-import { useEffect } from 'react/cjs/react.development';
+import React, { useRef, useEffect } from 'react';
 import ListOfGifs from '../../components/ListOfGifs';
 import Spinner from '../../components/Spinner';
 import { useGifs } from '../../hooks/useGifs';
