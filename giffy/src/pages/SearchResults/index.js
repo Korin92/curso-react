@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useCallback, useRef, useEffect } from 'react';
 import ListOfGifs from '../../components/ListOfGifs';
 import Spinner from '../../components/Spinner';
 import { useGifs } from '../../hooks/useGifs';
@@ -11,18 +11,18 @@ export default function SearchResults({ params }) {
     const { keyword } = params;
     const { loading, gifs, setPage } = useGifs({ keyword })
     const externalRef = useRef()
-    const { isNearScreen } = useNearScreen({ externalRef: loading ? null : externalRef, once: false });
-    const debounceHandleNextPage = useRef()
-    console.log(isNearScreen);
+    const { isNearScreen } = useNearScreen({
+        externalRef: loading ? null : externalRef,
+        once: false
+    });
 
-    // const handleNextPage = () => setPage(prevPage => prevPage + 1)
-    const handleNextPage = () => console.log('next page');
-
-    debounceHandleNextPage.current = () => debounce(console.log('next page'), 1000)
+    const debounceHandleNextPage = useCallback(debounce(
+        () => setPage(prevPage => prevPage + 1), 200
+    ), [])
 
     useEffect(function () {
-        if (isNearScreen) debounceHandleNextPage.current();
-    })
+        if (isNearScreen) debounceHandleNextPage();
+    }, [debounceHandleNextPage, isNearScreen])
     return <>
         {
             loading ? <Spinner />
@@ -32,8 +32,6 @@ export default function SearchResults({ params }) {
                     <div id="visor" ref={externalRef}></div>
                 </>
         }
-        <br></br>
-        {/* <button onClick={handleNextPage}>Siguiente página</button> */}
     </>
 
 }
