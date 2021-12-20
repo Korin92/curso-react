@@ -17,6 +17,7 @@
     "wouter": "^2.8.0-alpha.2"
   },
   "scripts": {
+    "deploy": "yarn run test && vercel",
     "start": "react-scripts start",
     "build": "CI=false && react-scripts build",
     "test": "react-scripts test",
