@@ -1,7 +1,7 @@
 import React from 'react';
 import './Gif.css';
 
-export default function Gif({title, id, url}) {
+function Gif({title, id, url}) {
     return (
         <a href={`#${id}`} className='Gif'>
             <h4>{title}</h4>
@@ -9,3 +9,7 @@ export default function Gif({title, id, url}) {
         </a >
     )
 }
+
+export default React.memo(Gif, (prevProps, nextProps) =>{
+    return prevProps.id === nextProps.id
+})
