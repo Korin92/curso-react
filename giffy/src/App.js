@@ -7,6 +7,8 @@ import Detail from "../src/pages/Detail";
 import StaticContext from './context/StaticContext';
 import { GifsContextProvider } from './context/GifsContext';
 
+import "./App.css";
+
 const HomePage = React.lazy(() => import("./pages/Home"));
 
 function App() {
