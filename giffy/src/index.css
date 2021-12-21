@@ -1,5 +1,5 @@
 :root {
-  --fz: 16px;
+  --fz: 14px;
   --theme--contrast-0: #121212;
   --theme-body-bg: #18061f;
   --theme-body-txt: #f3f3f3;
@@ -27,7 +27,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: var(--fz);
