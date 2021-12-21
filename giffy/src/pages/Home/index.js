@@ -6,8 +6,6 @@ import TrendingSearches from "../../components/TrendingSearches";
 import SearchForm from "../../components/SearchForm";
 import { Helmet } from 'react-helmet';
 
-//cambios
-
 export default function Home() {
 
     const [_, pushLocation] = useLocation();
