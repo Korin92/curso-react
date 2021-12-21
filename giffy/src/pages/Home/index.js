@@ -22,6 +22,7 @@ export default function Home() {
         <>
         <Helmet>
             <title>Home | Giffy</title>
+            <link rel="canonical" href="https://buscadordegifs.com"/>
         </Helmet>
             <header className="o-header">
                 <SearchForm onSubmit={handleSubmit} />
