@@ -23,10 +23,10 @@ function App() {
       <div className="App">
         <Suspense fallback={null}>
           <section className="App-content">
-            <Link to='/'><img className="App-logo" alt='giffy logo' src='logo.png' /></Link>
+            <Link to='/'><img className="App-logo" alt='giffy logo' src='/logo.png' /></Link>
             <GifsContextProvider>
               <Route component={HomePage} path="/" />
-              <Route component={SearchResults} path="/search/:keyword" />
+              <Route component={SearchResults} path="/search/:keyword/:rating?" />
               <Route component={Detail} path="/gif/:id" />
               <Route component={() => <h1>404 ERROR :(</h1>} path='/404'/>
               <Route path="/search/:keyword" component={ListOfGifs} />
