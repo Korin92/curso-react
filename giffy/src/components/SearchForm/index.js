@@ -1,29 +1,50 @@
-import React, { useState } from "react";
+import React from "react";
+import { useLocation } from "wouter";
 import css from "./SearchForm.module.css";
+import useForm from "./hook";
 // import Button from '../../components/Button';
 
-function SearchForm({ onSubmit }) {
-    const [keyword, setKeyword] = useState('');
+const RATINGS = ["g", "pg", "pg-13", "r"];
+
+
+function SearchForm({ initialKeyword = '', initialRating = 'g' }) {
+
+    const { keyword, rating, times, updateKeyword, updateRating } = useForm({
+        initialKeyword,
+        initialRating
+    });
+
+    const [_, pushLocation] = useLocation();
 
     const handleSubmit = evt => {
         evt.preventDefault();
-        onSubmit({ keyword })
+        pushLocation(`/search/${keyword}/${rating}`);
         //navegar
-    }
+    };
 
     const handleChange = evt => {
+        updateKeyword(evt.target.value)
+    };
 
-        setKeyword(evt.target.value);
-    }
+    const handleChangeRating = (evt) => {
+        updateRating(evt.target.value)
+    };
 
     return (
         <form onSubmit={handleSubmit} className={css["c-search"]}>
+            <button className={css["c-search-btn"]}>Buscar</button>
             <input className={css["c-search-input"]}
                 placeholder="Busca aquí tu gif..."
                 onChange={handleChange}
                 type="text"
                 value={keyword} />
-            <button>Buscar</button>
+            <select onChange={handleChangeRating} value={rating}>
+                <option disabled>Rating type</option>
+                {RATINGS.map((rating) => (
+                    <option key={rating}>{rating}</option>
+                ))}
+            </select>
+            <small>{times}</small>
         </form>
     )
 }
