@@ -1,0 +1,14 @@
+.gif-header{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.gif-header a{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gif-header a:hover{
+    text-decoration: underline;
+}

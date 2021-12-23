@@ -20,6 +20,7 @@ export default function SearchResults({ params }) {
 
     const title = gifs ? `${gifs.length} resultados de ${keyword}` : '';
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const debounceHandleNextPage = useCallback(debounce(
         () => setPage(prevPage => prevPage + 1), 200
     ), [setPage])
