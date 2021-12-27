@@ -1,6 +1,6 @@
-import { RouterContext } from "https://deno.land/x/oak/mod.ts";
-import { hashSync, compareSync } from "https://deno.land/x/bcrypt@v0.2.1/mod.ts";
-import { makeJwt, setExpiration, Jose } from "https://deno.land/x/djwt@v0.9.0/create.ts";
+import { RouterContext } from "https://deno.land/x/oak@v10.1.0/mod.ts";
+import { hashSync, compareSync } from "https://deno.land/x/bcrypt/mod.ts";
+import { makeJwt, setExpiration, Jose } from "https://deno.land/x/djwt@v1.7/create.ts";
 import { users, User } from './users.ts';
 import { favs } from './favs.ts'
 
@@ -10,13 +10,13 @@ const header: Jose = {
   typ: 'JWT'
 };
 
-export const getFavs = async (ctx: RouterContext) => {
+export const getFavs = async  (ctx: RouterContext) => {
   const {username} = ctx.state.currentUser
   ctx.response.status = 200
   ctx.response.body = { favs: favs[username] }
 }
 
-export const deleteFav = async (ctx: RouterContext) => {
+export const deleteFav = async  (ctx: RouterContext) => {
   const {id} = ctx.params
   const {username} = ctx.state.currentUser
   favs[username] = favs[username].filter(
@@ -33,7 +33,7 @@ export const deleteFav = async (ctx: RouterContext) => {
   ctx.response.status = 200
 }
 
-export const postFav = async (ctx: RouterContext) => {
+export const postFav = async  (ctx: RouterContext) => {
   const {id} = ctx.params
   const {username} = ctx.state.currentUser
 
@@ -54,7 +54,7 @@ export const postFav = async (ctx: RouterContext) => {
   ctx.response.status = 201
 }
 
-export const postLogin = async (ctx: RouterContext) => {
+export const postLogin = async  (ctx: RouterContext) => {
   const { value } = await ctx.request.body();
   const {username, password} = value
 
@@ -79,7 +79,7 @@ export const postLogin = async (ctx: RouterContext) => {
   }
 }
 
-export const postRegister = async (ctx: RouterContext) => {
+export const postRegister = async  (ctx: RouterContext) => {
   const { value } = await ctx.request.body();
   const {username, password} = value
 
