@@ -1,8 +1,9 @@
-import { Context } from "https://deno.land/x/oak/mod.ts";
-import { validateJwt } from "https://deno.land/x/djwt/validate.ts";
+import { Context } from "https://deno.land/x/oak@v10.1.0/mod.ts";
+import { validateJwt } from "https://deno.land/x/djwt@v1.7/validate.ts"
 import { users, User } from "./users.ts";
 
-const userMiddleware = async (ctx: Context, next: Function) => {
+
+const userMiddleware = async  (ctx: Context, next: Function) => {
   // Get JWT from request if available
   const { value = {} } = await ctx.request.body();
   let {jwt} = value
