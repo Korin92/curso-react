@@ -1,5 +1,5 @@
-import { RouterContext } from "https://deno.land/x/oak@v10.1.0/mod.ts";
-import { hashSync, compareSync } from "https://deno.land/x/bcrypt/mod.ts";
+import { RouterContext } from "https://deno.land/x/oak@v9.0.0/mod.ts";
+import { hashSync, compareSync } from "https://deno.land/x/bcrypt@v0.2.4/mod.ts";
 import { makeJwt, setExpiration, Jose } from "https://deno.land/x/djwt@v1.7/create.ts";
 import { users, User } from './users.ts';
 import { favs } from './favs.ts'
@@ -10,13 +10,13 @@ const header: Jose = {
   typ: 'JWT'
 };
 
-export const getFavs = async  (ctx: RouterContext) => {
+export async function getFavs (ctx: RouterContext) {
   const {username} = ctx.state.currentUser
   ctx.response.status = 200
   ctx.response.body = { favs: favs[username] }
 }
 
-export const deleteFav = async  (ctx: RouterContext) => {
+export async function deleteFav (ctx: RouterContext) {
   const {id} = ctx.params
   const {username} = ctx.state.currentUser
   favs[username] = favs[username].filter(
@@ -33,7 +33,7 @@ export const deleteFav = async  (ctx: RouterContext) => {
   ctx.response.status = 200
 }
 
-export const postFav = async  (ctx: RouterContext) => {
+export async function postFav (ctx: RouterContext) {
   const {id} = ctx.params
   const {username} = ctx.state.currentUser
 
@@ -54,8 +54,9 @@ export const postFav = async  (ctx: RouterContext) => {
   ctx.response.status = 201
 }
 
-export const postLogin = async  (ctx: RouterContext) => {
-  const { value } = await ctx.request.body();
+export async function postLogin (ctx: RouterContext) {
+  const body =  ctx.request.body();
+  const {value} = await  body.value
   const {username, password} = value
 
   const user: any = users.find((u: User) => u.username === username);
@@ -79,8 +80,9 @@ export const postLogin = async  (ctx: RouterContext) => {
   }
 }
 
-export const postRegister = async  (ctx: RouterContext) => {
-  const { value } = await ctx.request.body();
+export async function postRegister (ctx: RouterContext){
+  const body =  ctx.request.body();
+  const {value} = await body.value
   const {username, password} = value
 
   const hashedPassword = hashSync(password);
