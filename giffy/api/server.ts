@@ -1,9 +1,10 @@
-import { Application, Router, RouterContext } from "https://deno.land/x/oak@v10.1.0/mod.ts";
+import { Application, Router } from "https://deno.land/x/oak@v9.0.0/mod.ts";
 import "https://deno.land/x/dotenv@v3.1.0/load.ts";
 import { userMiddleware } from "./userMiddleware.ts";
 import { authMiddleware } from "./authMiddleware.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts"
 import * as flags from 'https://deno.land/std/flags/mod.ts'
+
 
 import {
   getFavs,
