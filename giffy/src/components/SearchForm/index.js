@@ -44,7 +44,6 @@ function SearchForm({ initialKeyword = '', initialRating = 'g' }) {
                     <option key={rating}>{rating}</option>
                 ))}
             </select>
-            <small>{times}</small>
         </form>
     )
 }

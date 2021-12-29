@@ -1,27 +1,28 @@
-import React from 'react';
-import { Link } from 'wouter';
-import useUser from '../../hooks/useUser';
-import './index.css';
+import React from "react";
+import { useRoute, Link } from "wouter";
+import useUser from "../../hooks/useUser";
+import "./index.css";
 
 export default function Header() {
+  const { isLogged, logout } = useUser();
+  const [match] = useRoute("/login");
 
-    const {isLogged, logout} = useUser();
-    const handleClick = e =>{
-        e.preventDefault()
-        logout()
-    }
-    return (
-        <header className='gif-header'>
-            {
-                isLogged
-                    ? <Link to='#' onClick={handleClick}>
-                        Logout
-                    </Link>
-                    : <Link to='/login'>
-                        Login
-                    </Link>
-            }
+  const handleClick = (e) => {
+    e.preventDefault();
+    logout();
+  };
 
-        </header>
-    )
+  const renderLoginButtons = ({ isLogged }) => {
+    return isLogged ? (
+      <Link to="#" onClick={handleClick}>
+        Cerrar sesión
+      </Link>
+    ) : (
+      <Link to="/login">Iniciar sesión</Link>
+    );
+  };
+
+  const content = match ? null : renderLoginButtons({ isLogged });
+
+  return <header className="gif-header">{content}</header>;
 }
