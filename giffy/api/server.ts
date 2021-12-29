@@ -16,7 +16,7 @@ import {
 
 const {args} = Deno
 
-const DEFAULT_PORT = 8080
+const DEFAULT_PORT = 8000
 const portFromArgs = flags.parse(args).port
 const port = portFromArgs ? Number(portFromArgs) : DEFAULT_PORT
 
