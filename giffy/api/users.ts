@@ -6,6 +6,6 @@ export interface User {
   export const users: User[] = [
     {
       username: "korin92",
-      password: "$2a$10$K8ZpdrjwzUWSTmtyM.SAHewu7Zxpq3kUXnv/DPZSM8k.DSrmSekxi"
+      password: "holahola"
     }
   ]
