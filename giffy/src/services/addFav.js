@@ -1,4 +1,4 @@
-const ENDPOINT = "http://localhost:8000";
+const ENDPOINT = 'https://deno-api-users-login.herokuapp.com';
 
 export default function addFav({ id, jwt }) {
   return fetch(`${ENDPOINT}/favs${id}`, {
