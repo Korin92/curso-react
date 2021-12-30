@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import useUser from "../../hooks/useUser";
 import { useLocation } from "wouter";
 import Modal from "../../components/Modal";
-import Login from '../../components/Login';
+import Login from "../../components/Login";
 
 import "./Fav.css";
 
@@ -22,6 +22,10 @@ export default function Fav({ id }) {
     setShowModal(false);
   };
 
+  const handleLogin = () => {
+    setShowModal(false);
+  };
+
   const [label, emoji] = isFaved ? ["Remove Gif", "❌"] : ["Add Gif", "❤️"];
 
   return (
@@ -31,7 +35,11 @@ export default function Fav({ id }) {
           {emoji}
         </span>
       </button>
-      {showModal && <Modal onClose={handleClose}><Login /></Modal>}
+      {showModal && (
+        <Modal onClose={handleClose}>
+          <Login onLogin={handleLogin} />
+        </Modal>
+      )}
     </>
   );
 }

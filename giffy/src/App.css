@@ -1,6 +1,4 @@
-
-
-.App-logo{
+.App-logo {
   width: 20%;
 }
 
@@ -44,10 +42,10 @@
 }
 
 .App-wrapper {
-	width: 100%;
-	max-width: 90rem;
-	margin: 0 auto;
-	padding: 0 0.5em;
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 0.5em;
 }
 
 .App-results {
@@ -60,12 +58,12 @@
   width: 100%;
 }
 
-@media screen and (min-width: 55rem){
-  .App-main{
+@media screen and (min-width: 55rem) {
+  .App-main {
     flex-direction: initial;
   }
 
-  .App-category{
+  .App-category {
     position: sticky;
     top: var(--search-size-mx-h);
     width: 40%;
@@ -75,7 +73,7 @@
 
 .btn {
   border: 1px solid transparent;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   background-color: var(--brand-color_3);
   color: var(--theme-body-txt);
   cursor: pointer;
@@ -83,10 +81,15 @@
 }
 
 .btn[disabled] {
-  opacity: .3;
+  opacity: 0.3;
   pointer-events: none;
 }
 
 .btn:hover {
   background-color: var(--brand-color_6);
+}
+
+.btn[disabled] {
+  opacity: 0.3;
+  pointer-events: none;
 }
