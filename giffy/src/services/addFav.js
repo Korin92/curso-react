@@ -1,7 +1,7 @@
-const ENDPOINT = 'https://deno-api-users-login.herokuapp.com';
+const ENDPOINT = "https://deno-api-users-login.herokuapp.com";
 
 export default function addFav({ id, jwt }) {
-  return fetch(`${ENDPOINT}/favs${id}`, {
+  return fetch(`${ENDPOINT}/favs/${id}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

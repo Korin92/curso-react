@@ -1,13 +1,12 @@
-const ENDPOINT = 'https://deno-api-users-login.herokuapp.com';
+const ENDPOINT = "https://deno-api-users-login.herokuapp.com";
 
-export default function getFavs({ id, jwt }) {
+export default function getFavs({ jwt }) {
   return fetch(`${ENDPOINT}/favs`, {
     method: "GET",
     headers: {
-      "Authorization": jwt,
+      Authorization: jwt,
       "Content-Type": "application/json",
-    }
-
+    },
   })
     .then((res) => {
       if (!res.ok) throw new Error("Response is not ok");
