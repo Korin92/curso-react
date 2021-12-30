@@ -5,6 +5,7 @@ import { Link, Route, Switch } from "wouter";
 import Login from './pages/Login';
 import SearchResults from "../src/pages/SearchResults";
 import Detail from "../src/pages/Detail";
+import Register from './pages/Register';
 import { UserContextProvider } from './context/UserContext';
 import { GifsContextProvider } from './context/GifsContext';
 
@@ -26,6 +27,7 @@ function App() {
               <Route component={SearchResults} path="/search/:keyword/:rating?" />
               <Route component={Detail} path="/gif/:id" />
               <Route component={Login} path='/login' />
+              <Route component={Register} path='/register' />
               <Route component={() => <h1>404 ERROR :(</h1>} path='/404' />
               <Route path="/search/:keyword" component={ListOfGifs} />
             </GifsContextProvider>

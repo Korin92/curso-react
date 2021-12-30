@@ -1,34 +1,44 @@
-.div-form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.div-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.form{
-    max-width: 320px;
-    width: 100%;
+.form {
+  max-width: 320px;
+  width: 100%;
 }
 
-.form label{
-    display: block;
-    font-size: 14px;
+.form-error {
+  color: rgb(248, 27, 27);
+  font-size: 12px;
+  display: block;
+  margin-top: -12px;
 }
 
-.form input{
-    background: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    display: block;
-    line-height: 2;
-    width: 100%;
-    padding: 0 8px;
-    margin-bottom: 16px;
-    margin-top: 4px;
+.form label {
+  display: block;
+  font-size: 14px;
 }
 
-.form .btn{
-    width: 100%;
-    border-radius: 4px;
+.form input {
+  background: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  display: block;
+  line-height: 2;
+  width: 100%;
+  padding: 0 8px;
+  margin-bottom: 16px;
+  margin-top: 4px;
 }
 
+.form input.error {
+  border: 2px solid red;
+}
+
+.form .btn {
+  width: 100%;
+  border-radius: 4px;
+}

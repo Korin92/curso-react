@@ -18,7 +18,10 @@ export default function Header() {
         Cerrar sesión
       </Link>
     ) : (
-      <Link to="/login">Iniciar sesión</Link>
+      <>
+        <Link to="/login">Iniciar sesión</Link>
+        <Link to="/register">Registrarse</Link>
+      </>
     );
   };
 

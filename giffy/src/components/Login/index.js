@@ -3,15 +3,18 @@ import { useLocation } from "wouter";
 import useUser from "../../hooks/useUser";
 import "./Login.css";
 
-export default function Login() {
+export default function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [, navigate] = useLocation();
   const { isLoginLoading, hasLoginError, login, isLogged } = useUser();
 
   useEffect(() => {
-    if (isLogged) navigate("/");
-  }, [isLogged, navigate]);
+    if (isLogged) {
+      navigate("/");
+      onLogin && onLogin();
+    }
+  }, [isLogged, navigate, onLogin]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +28,7 @@ export default function Login() {
         {!isLoginLoading && (
           <form className="form" onSubmit={handleSubmit}>
             <label>
-              Username
+              Nombre de usuario
               <input
                 placeholder="username"
                 onChange={(e) => setUsername(e.target.value)}
@@ -34,7 +37,7 @@ export default function Login() {
             </label>
 
             <label>
-              Password
+              Constraseña
               <input
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
