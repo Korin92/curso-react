@@ -11,6 +11,7 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^12.8.3",
+    "emotion-theming": "^11.0.0",
     "formik": "^2.2.9",
     "intersection-observer": "^0.12.0",
     "just-debounce-it": "^3.0.1",
