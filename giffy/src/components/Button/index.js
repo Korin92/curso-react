@@ -1,8 +1,16 @@
-import React from 'react'
-import { Button, Link } from './styles'
+import React from "react";
+import { Button, Link } from "./styles";
 
-export default function ButtonComponent ({children, href, size = 'jkhdfgsjkfghsdsjkldfgdljk'}) {
-  return href
-    ? <Link size={size} href={href}>{children}</Link>
-    : <Button size={size}>{children}</Button>
+export default function ButtonComponent({
+  children,
+  href,
+  size = "small",
+}) {
+  return href ? (
+    <Link size={size} href={href}>
+      {children}
+    </Link>
+  ) : (
+    <Button size={size}>{children}</Button>
+  );
 }
